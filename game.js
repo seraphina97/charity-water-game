@@ -1,5 +1,4 @@
 const GRID_SIZE = 9;
-const GAME_TIME = 30; // seconds
 const WATER_CAN_IMG = 'img/water-can-transparent.png';
 const BLACK_DROP_IMG = 'img/black water drop.png'; 
 
@@ -9,11 +8,19 @@ const timerSpan = document.getElementById('timer');
 const scoreSpan = document.getElementById('score');
 const restartBtn = document.getElementById('restart-btn');
 
-let timer = GAME_TIME;
+const DIFFICULTY_SETTINGS = {
+  easy:   { time: 50, moleDuration: 1500 },
+  medium: { time: 30, moleDuration: 1000 },
+  hard:   { time: 20, moleDuration: 800 }
+};
+
+let timer =  DIFFICULTY_SETTINGS.easy.time; // Default to easy difficulty
 let score = 0;
 let gameInterval = null;
 let moleTimeout = null;
 let gameActive = false;
+let difficulty = 'easy';
+let moleDuration = DIFFICULTY_SETTINGS[difficulty].moleDuration;
 
 // Create grid cells
 function createGrid() {
@@ -27,8 +34,19 @@ function createGrid() {
 }
 createGrid();
 
+// Get the difficulty dropdown
+const difficultySelect = document.getElementById('difficulty');
+
+// Listen for difficulty changes
+difficultySelect.addEventListener('change', (e) => {
+  difficulty = e.target.value;
+  moleDuration = DIFFICULTY_SETTINGS[difficulty].moleDuration;
+  // Optionally reset game UI when difficulty changes
+  resetGame();
+});
+
 function resetGame() {
-  timer = GAME_TIME;
+  timer = DIFFICULTY_SETTINGS[difficulty].time;
   score = 0;
   timerSpan.textContent = `Time: ${timer}`;
   scoreSpan.textContent = `Score: ${score}`;
@@ -65,13 +83,11 @@ function showRandomMole() {
       scoreSpan.textContent = `Score: ${score}`;
       cell.innerHTML = '';
     }
-    
   };
 
-  
   moleTimeout = setTimeout(() => {
     cell.innerHTML = '';
-  }, 900);
+  }, moleDuration);
 }
 
 function startGame() {
@@ -91,7 +107,7 @@ function startGame() {
   function moleLoop() {
     if (!gameActive) return;
     showRandomMole();
-    setTimeout(moleLoop, 900);
+    setTimeout(moleLoop, moleDuration);
   }
   moleLoop();
 }

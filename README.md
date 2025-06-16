@@ -1,47 +1,15 @@
-# charity: water – Water Quest Game Starter
+#  Project 6 | Completed charity: water Game
+Time to finalize the game you’re building for charity: water and turn it into a more polished, playable experience — something that feels complete, engaging, and aligned with charity: water's mission and brand.
 
-In this game, users tap charity: water’s signature yellow jerry cans as fast as they can to earn points. You’ll be working from a partially built version of the game. Some functionality is already provided, and your job is to complete the rest.
+#  Project Steps Overview:
+This is your chance to level up what you've already built! The core functionality is already in place. Now it's time to polish, enhance, and finalize your game by:
+- Making it more enjoyable and engaging to play
+- Strengthening its connection to charity: water's mission and brand
+Adding thoughtful touches that improve the overall experience
 
-## What’s Already Done
-
-The starter files already include:
-
-- A **heading and tagline**
-- A **start button**
-- A **game container** displaying a grid
-- A **placeholder timer and score** (not functional yet)
-- A **logo image** from charity: water
-- Working code that:
-  - Starts the game when the start button is clicked  
-  - Makes jerry cans pop up randomly
-
-## What You Need to Add
-
-Here’s what you're required to implement to bring the game to life:
-
-### Game Functionality
-
-- **Update the score**
-  - +1 point for each can clicked  
-
-- **Add a 30-second timer**
-  - When the timer reaches 0, the game ends  
-
-- **Display a message when the game ends**
-  - If the player scores **20 or more points**, show a **winning** message  
-  - If the player scores **less than 20 points**, show a **"try again"** message  
-  - Create one array of possible winning messages and one array of losing messages  
-  - Depending on whether the user wins or loses, randomly pick and display a message from the appropriate array  
-
-### Visual Styling
-
-- **Add charity: water branding**
-  
-  - Use the provided logo  
-  - Use the [charity: water brand guidelines](https://drive.google.com/file/d/1ct4zYRIwHAtxoNQoeaVwWYPdnruSC6sr/view) to stay on-brand with colors and styling
-  - Add styling rules to ensure your game layout adjusts well across different screen sizes
-
-These are the minimum requirements, but if you'd like an additional challenge go ahead and give the LevelUps a shot! For example, you could add logic to decrease the user's score if they miss a jerry can. Have fun and make the game your own!
-
-If you have any questions or need any assistance with your code, reach out to the HelpHub or attend a Drop-In Hour. You got this!!
-
+## Implement Game Improvements
+No matter what game you built — whether you started from a template or created your own — your final version should include these enhancements:
+- Add difficulty modes (e.g. Easy, Normal, and Hard) that change the game’s goals, pace, or rules. For example, you might set a different number of points for the  win conditions on each level, or shorten the time available to users to reach a goal as the difficulty level increases.
+- Add, change, or remove elements from the DOM when players interact with them (depending on which makes the most sense for your game). For example, water drops disappear when clicked, or cans are removed when collected. If you're building your own game, think about what elements players collect, defeat, or interact with—and how those should disappear in response. For example, clearing completed tasks or removing obstacles after a collision.
+- Include a page element or section (like a footer) with links to charity: water’s website and donation pages.
+- Use a font that matches or closely resembles the one in charity: water’s brand guidelines, and apply it to your game’s text for a more on-brand look.

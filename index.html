@@ -10,9 +10,19 @@
   <img src="img/cw_logo_horizontal.png" alt="CW Logo" id="cw-logo" />
   <div class="game-container">
     <h1>Whack-a-Mole: Water Quest</h1>
+    <!-- Difficulty dropdown start -->
+    <div class="difficulty-select">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <!-- Difficulty dropdown end -->
     <div class="grid" id="grid"></div>
     <div id="player-info">
-      <span id="timer">Time: 30</span>
+      <span id="timer">Time: 50</span>
       <span id="score">Score: 0</span>
     </div>
     <div class="controls">
