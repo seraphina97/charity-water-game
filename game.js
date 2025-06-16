@@ -22,6 +22,15 @@ let gameActive = false;
 let difficulty = 'easy';
 let moleDuration = DIFFICULTY_SETTINGS[difficulty].moleDuration;
 
+// Add audio for positive score
+const positiveScoreAudio = new Audio('sounds/positive score.mp3');
+// Add audio for error sound
+const errorSoundAudio = new Audio('sounds/error sound.mp3');
+// Add audio for level win
+const levelWinAudio = new Audio('sounds/level win.wav');
+// Add audio for level fail
+const levelFailAudio = new Audio('sounds/level fail.wav');
+
 // Create grid cells
 function createGrid() {
   grid.innerHTML = '';
@@ -77,8 +86,14 @@ function showRandomMole() {
     if (cell.querySelector('img')) {
       if (isWaterCan) {
         score += 10;
+        // Play positive score sound
+        positiveScoreAudio.currentTime = 0;
+        positiveScoreAudio.play();
       } else {
         score -= 20;
+        // Play error sound
+        errorSoundAudio.currentTime = 0;
+        errorSoundAudio.play();
       }
       scoreSpan.textContent = `Score: ${score}`;
       cell.innerHTML = '';
@@ -119,6 +134,16 @@ function endGame() {
   Array.from(grid.children).forEach(cell => cell.innerHTML = '');
   startBtn.disabled = false;
   grid.classList.add('unclickable');
+  // Play level win sound if score is positive
+  if (score > 0) {
+    levelWinAudio.currentTime = 0;
+    levelWinAudio.play();
+  }
+  // Play level fail sound if score is negative
+  if (score < 0) {
+    levelFailAudio.currentTime = 0;
+    levelFailAudio.play();
+  }
 }
 
 // Restart button logic
